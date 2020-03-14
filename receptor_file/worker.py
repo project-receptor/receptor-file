@@ -21,7 +21,7 @@ def execute(message, config, result_queue):
     filenm = f"/tmp/{uuid.uuid4()}.data"
     with open(filenm, "wb") as fd:
         written = 0
-        for chunk in iter(partial(message.read, 4096), b""):
+        for chunk in iter(partial(message.read, 2 ** 20), b""):
             fd.write(chunk)
             written += len(chunk)
             result_queue.put(f"Wrote {written} of {len(message)}")
