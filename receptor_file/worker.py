@@ -1,6 +1,4 @@
-import json
 import logging
-import time
 import uuid
 from functools import partial
 import receptor
